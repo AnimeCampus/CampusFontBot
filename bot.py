@@ -5,9 +5,9 @@ from pyrogram import Client, filters
 from pyrogram.types import InputFile
 
 # Replace these with your API ID, API Hash, and Bot Token
-api_id = "YOUR_API_ID"
-api_hash = "YOUR_API_HASH"
-bot_token = "YOUR_BOT_TOKEN"
+api_id = "16743442"
+api_hash = "12bbd720f4097ba7713c5e40a11dfd2a"
+bot_token = "6065321925:AAEWc4Y5PDWTcE4jUBYIAL6s1OzlnuaWWmU"
 
 # Create a Pyrogram Client
 app = Client("your_bot_name", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
@@ -25,7 +25,7 @@ async def start_command(client, message):
     
     # Upload and send an image (replace 'your_image.jpg' with the path to your image)
     await message.reply_photo(
-        photo=InputFile("your_image.jpg"),
+        photo=InputFile("CampusFontPic.png"),
         caption=welcome_message,
         parse_mode="Markdown",
     )
