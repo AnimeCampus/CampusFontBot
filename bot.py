@@ -24,7 +24,7 @@ async def start_command(client, message):
     
     # Upload and send an image (replace 'your_image.jpg' with the path to your image)
     await message.reply_photo(
-        photo=InputMedia(""),
+        photo=InputMedia("CampusFontPic.png"),
         caption=welcome_message,
         parse_mode="Markdown",
     )
@@ -43,8 +43,7 @@ async def help_command(client, message):
     """
 
     await message.reply_text(
-        help_message,
-        parse_mode="Markdown",
+        help_message,      
     )
 
 @app.on_message(filters.command(["font", "fonts"]) & filters.private)
