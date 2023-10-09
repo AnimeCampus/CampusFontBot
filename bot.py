@@ -2,7 +2,7 @@ from pyrogram import filters, app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
  
-from HuTao.database.fontdb import Fonts
+from fontdb import Fonts
 
 @app.on_message(filters.command(["font", "fonts"]) & filters.private)
 async def style_buttons(c, m, cb=False):
