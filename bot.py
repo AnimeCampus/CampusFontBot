@@ -24,7 +24,7 @@ async def start_command(client, message):
     
     # Upload and send an image (replace 'your_image.jpg' with the path to your image)
     await message.reply_photo(
-        photo=InputMedia("CampusFontPic.png"),
+        photo=InputMedia("https://telegra.ph/file/fdcb75d2540bfee82a016.png"),
         caption=welcome_message,
         parse_mode="Markdown",
     )
