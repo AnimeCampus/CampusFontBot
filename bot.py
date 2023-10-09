@@ -11,23 +11,19 @@ bot_token = "6065321925:AAEWc4Y5PDWTcE4jUBYIAL6s1OzlnuaWWmU"
 # Create a Pyrogram Client
 app = Client("your_bot_name", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-# Define font style buttons and logic here as you did in your code
-
 @app.on_message(filters.command("start"))
 async def start_command(client, message):
-    # Send a beautiful welcome message with styled text and an image
-    welcome_message = """
+    # Send a welcome message with an image
+    await message.reply_photo(
+        photo="https://telegra.ph/file/fdcb75d2540bfee82a016.png",  # Replace with the URL of your image
+        caption="""
     𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗳𝗼𝗻𝘁 𝘀𝘁𝘆𝗹𝗲 𝗯𝗼𝘁! 🌟
 
     Explore 𝗰𝗼𝗼𝗹 𝗳𝗼𝗻𝘁 𝘀𝘁𝘆𝗹𝗲𝘀 and make your messages stand out. Use /help to see available commands.
-    """
-    
-    # Upload and send an image (replace 'your_image.jpg' with the path to your image)
-    await message.reply_photo(
-        photo=InputFile("CampusFontPic.png"),
-        caption=welcome_message,
-        parse_mode="Markdown",
+    """,
     )
+     
+    
 
 @app.on_message(filters.command("help"))
 async def help_command(client, message):
