@@ -1,5 +1,5 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from fontdb import Fonts
+from Font.fontdb import Fonts
 from pyrogram import Client, filters, idle
 from pyrogram.types import InputMedia
 
@@ -24,7 +24,7 @@ async def start_command(client, message):
     
     # Upload and send an image (replace 'your_image.jpg' with the path to your image)
     await message.reply_photo(
-        photo=InputMedia("https://telegra.ph/file/fdcb75d2540bfee82a016.png"),
+        photo=InputMedia(""),
         caption=welcome_message,
         parse_mode="Markdown",
     )
