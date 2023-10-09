@@ -13,7 +13,7 @@ app = Client("your_bot_name", api_id=api_id, api_hash=api_hash, bot_token=bot_to
 
 # Define font style buttons and logic here as you did in your code
 
-@Client.on_message(filters.command("start"))
+@app.on_message(filters.command("start"))
 async def start_command(client, message):
     # Send a beautiful welcome message with styled text and an image
     welcome_message = """
@@ -29,7 +29,7 @@ async def start_command(client, message):
         parse_mode="Markdown",
     )
 
-@Client.on_message(filters.command("help"))
+@app.on_message(filters.command("help"))
 async def help_command(client, message):
     # Send a beautiful help message with styled text
     help_message = """
@@ -47,7 +47,7 @@ async def help_command(client, message):
         parse_mode="Markdown",
     )
 
-@Client.on_message(filters.command(["font", "fonts"]) & filters.private)
+@app.on_message(filters.command(["font", "fonts"]) & filters.private)
 async def style_buttons(c, m, cb=False):
     buttons = [
         [
@@ -96,7 +96,7 @@ async def style_buttons(c, m, cb=False):
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
-@Client.on_callback_query(filters.regex("^_next"))
+@app.on_callback_query(filters.regex("^_next"))
 async def nxt(c, m):
     if m.data == "_next":
         buttons = [
@@ -146,7 +146,7 @@ async def nxt(c, m):
         await style_buttons(c, m, cb=True)
 
 
-@Client.on_callback_query(filters.regex("^hu_back"))
+@app.on_callback_query(filters.regex("^hu_back"))
 async def hu_back(c, m):
     await style_buttons(c, m, cb=True)
 
@@ -240,6 +240,6 @@ async def style(c, m):
     except:
         pass
 
-  
+print("start")
 app.run()
 idle()
