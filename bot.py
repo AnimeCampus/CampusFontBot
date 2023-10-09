@@ -1,7 +1,7 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from fontdb import Fonts
 from pyrogram import Client, filters
-from pyrogram.types import InputFile
+from pyrogram.types import InputMedia
 
 # Replace these with your API ID, API Hash, and Bot Token
 api_id = "16743442"
@@ -24,7 +24,7 @@ async def start_command(client, message):
     
     # Upload and send an image (replace 'your_image.jpg' with the path to your image)
     await message.reply_photo(
-        photo=InputFile("CampusFontPic.png"),
+        photo=InputMedia("CampusFontPic.png"),
         caption=welcome_message,
         parse_mode="Markdown",
     )
