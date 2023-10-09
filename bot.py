@@ -1,8 +1,52 @@
 from pyrogram import filters, app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
- 
 from fontdb import Fonts
+from pyrogram import Client, filters
+from pyrogram.types import InputFile
+
+# Replace these with your API ID, API Hash, and Bot Token
+api_id = "YOUR_API_ID"
+api_hash = "YOUR_API_HASH"
+bot_token = "YOUR_BOT_TOKEN"
+
+# Create a Pyrogram Client
+app = Client("your_bot_name", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
+
+# Define font style buttons and logic here as you did in your code
+
+@app.on_message(filters.command("start"))
+async def start_command(client, message):
+    # Send a beautiful welcome message with styled text and an image
+    welcome_message = """
+    𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗳𝗼𝗻𝘁 𝘀𝘁𝘆𝗹𝗲 𝗯𝗼𝘁! 🌟
+
+    Explore 𝗰𝗼𝗼𝗹 𝗳𝗼𝗻𝘁 𝘀𝘁𝘆𝗹𝗲𝘀 and make your messages stand out. Use /help to see available commands.
+    """
+    
+    # Upload and send an image (replace 'your_image.jpg' with the path to your image)
+    await message.reply_photo(
+        photo=InputFile("your_image.jpg"),
+        caption=welcome_message,
+        parse_mode="Markdown",
+    )
+
+@app.on_message(filters.command("help"))
+async def help_command(client, message):
+    # Send a beautiful help message with styled text
+    help_message = """
+    💬 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 💬
+
+    • /start - Start the bot and get a beautiful welcome message.
+    • /help - Display this help message.
+    • /font - Choose a font style for your text.
+
+    Explore the font styles and have fun! 🎉
+    """
+
+    await message.reply_text(
+        help_message,
+        parse_mode="Markdown",
+    )
 
 @app.on_message(filters.command(["font", "fonts"]) & filters.private)
 async def style_buttons(c, m, cb=False):
