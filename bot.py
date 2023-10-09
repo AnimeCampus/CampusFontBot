@@ -1,6 +1,6 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from fontdb import Fonts
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import InputMedia
 
 # Replace these with your API ID, API Hash, and Bot Token
@@ -239,3 +239,7 @@ async def style(c, m):
         await m.message.edit_text(new_text, reply_markup=m.message.reply_markup)
     except:
         pass
+
+  
+app.run()
+idle()
