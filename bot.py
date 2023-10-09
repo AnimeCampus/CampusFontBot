@@ -1,7 +1,6 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Font.fontdb import Fonts
 from pyrogram import Client, filters, idle
-from pyrogram import InputFile
 
 # Replace these with your API ID, API Hash, and Bot Token
 api_id = "16743442"
