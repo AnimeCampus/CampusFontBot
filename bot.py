@@ -1,4 +1,3 @@
-from pyrogram import filters, app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from fontdb import Fonts
 from pyrogram import Client, filters
@@ -14,7 +13,7 @@ app = Client("your_bot_name", api_id=api_id, api_hash=api_hash, bot_token=bot_to
 
 # Define font style buttons and logic here as you did in your code
 
-@app.on_message(filters.command("start"))
+@Client.on_message(filters.command("start"))
 async def start_command(client, message):
     # Send a beautiful welcome message with styled text and an image
     welcome_message = """
@@ -30,7 +29,7 @@ async def start_command(client, message):
         parse_mode="Markdown",
     )
 
-@app.on_message(filters.command("help"))
+@Client.on_message(filters.command("help"))
 async def help_command(client, message):
     # Send a beautiful help message with styled text
     help_message = """
@@ -48,7 +47,7 @@ async def help_command(client, message):
         parse_mode="Markdown",
     )
 
-@app.on_message(filters.command(["font", "fonts"]) & filters.private)
+@Client.on_message(filters.command(["font", "fonts"]) & filters.private)
 async def style_buttons(c, m, cb=False):
     buttons = [
         [
@@ -97,7 +96,7 @@ async def style_buttons(c, m, cb=False):
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
-@app.on_callback_query(filters.regex("^_next"))
+@Client.on_callback_query(filters.regex("^_next"))
 async def nxt(c, m):
     if m.data == "_next":
         buttons = [
@@ -147,12 +146,12 @@ async def nxt(c, m):
         await style_buttons(c, m, cb=True)
 
 
-@app.on_callback_query(filters.regex("^hu_back"))
+@Client.on_callback_query(filters.regex("^hu_back"))
 async def hu_back(c, m):
     await style_buttons(c, m, cb=True)
 
 
-@app.on_callback_query(filters.regex("^style"))
+@Client.on_callback_query(filters.regex("^style"))
 async def style(c, m):
     await m.answer()
     cmd, style = m.data.split("+")
