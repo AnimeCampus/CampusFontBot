@@ -7,7 +7,7 @@ from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 USER = []
-DEV_USERS = ""
+DEV_USERS = "6198858059"
 
 @Client.on_message(filters.command(["bcast", "broadcast"]))
 async def _bcast(app, message):
