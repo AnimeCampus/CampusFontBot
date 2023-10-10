@@ -2,14 +2,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from .fontdb import Fonts
 from pyrogram import Client, filters, idle
 
-# Replace these with your API ID, API Hash, and Bot Token
-api_id = "16743442"
-api_hash = "12bbd720f4097ba7713c5e40a11dfd2a"
-bot_token = "6065321925:AAEWc4Y5PDWTcE4jUBYIAL6s1OzlnuaWWmU"
-
-# Create a Pyrogram Client
-app = Client("your_bot_name", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
-
 @app.on_message(filters.command("start"))
 async def start_command(client, message):
     # Send a welcome message with an image
@@ -22,8 +14,6 @@ async def start_command(client, message):
     """,
     )
      
-    
-
 @app.on_message(filters.command("help"))
 async def help_command(client, message):
     # Send a beautiful help message with styled text
