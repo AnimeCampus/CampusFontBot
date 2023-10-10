@@ -1,5 +1,5 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Font.fontdb import Fonts
+from .fontdb import Fonts
 from pyrogram import Client, filters, idle
 
 # Replace these with your API ID, API Hash, and Bot Token
