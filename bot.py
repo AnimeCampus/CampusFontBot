@@ -14,14 +14,14 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 if __name__ == "__main__" :
     plugins = dict(
-        root="plugins"
+        root="bot"
     )
     app = Client(
         "AnimeCampus",
         bot_token=Config.BOT_TOKEN,
         api_id=Config.API_ID,
         api_hash=Config.API_HASH, 
-        plugins=plugins,
+        bot=bot,
         workers=100
     )
     app.run()
